@@ -39,3 +39,4 @@ ALTER TABLE `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+-- it was all about database
