@@ -1,30 +1,13 @@
 <?php
-// database connection code
-if(isset($_POST['txtName']))
-{
-// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
-$con = mysqli_connect('localhost', 'root', '','db_contact');
+$txtName = $_POST['name'];
+$txtEmail = $_POST['email'];
+echo "$txtName";
+echo "$txtEmail";
 
-// get the post records
+$connect=mysqli_connect("localhost","root","","reg_form");
+$query="insert into students(student_name,gmail) value('$txtName','$txtEmail')";
 
-$txtName = $_POST['txtName'];
-$txtEmail = $_POST['txtEmail'];
-$txtPhone = $_POST['txtPhone'];
-$txtMessage = $_POST['txtMessage'];
+mysqli_query($connect,$query);
 
-// database insert SQL code
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldName`, `fldEmail`, `fldPhone`, `fldMessage`) VALUES ('0', '$txtName', '$txtEmail', '$txtPhone', '$txtMessage')";
-
-// insert in database 
-$rs = mysqli_query($con, $sql);
-if($rs)
-{
-	echo "Contact Records Inserted";
-}
-}
-else
-{
-	echo "Are you a genuine visitor?";
-	
-}
+echo "Registration Succesfully!";
 ?>
